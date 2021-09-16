@@ -1,3 +1,5 @@
+# awk -f wp2html.awk source.html >new.html
+
 BEGIN {
 	myprint1=1
 	myprint2=0
