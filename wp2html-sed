@@ -1,0 +1,57 @@
+/<head>/,/<\/head>/d
+
+s~ name="[^"]*"~~g
+s~</span>~~g
+s~<span style="background: #[A-Fa-f0-9]*">~~g
+s~</font>~~g
+s~<font face="[^"]*">~~g
+s~<font size="[^"]*" style="[^"]*">~~g
+s~<p class="has-small-font-size">~<p>~g
+s~ lang="[a-zA-Z-]*"~~g
+s~ style=".*">~>~g
+s~ id="sdfootnote[0-9]*"~~g
+s~ name="sdfootnote[0-9]*sym"~~g
+s~ name="sdfootnote[0-9]*anc"~~g
+s~<span>~~g
+s~<i>~<em>~g
+s~</i>~</em>~g
+s~, </em>~</em>, ~g
+s~,</em>~</em>,~g
+s~<em> ~<em>~g
+s~ </em>~</em>~g
+s~<p><b>~<h3>~g
+s~</b></p>~</h3>~g
+s~<strong>~~g
+s~</strong>~~g
+s~<b>~~g
+s~</b>~~g
+s~<u>~~g
+s~</u>~~g
+s~<br/>~~g
+s~<sup>~~g
+s~</sup>~~g
+s~<li><p>~<li>~g
+s~ align="justify"~~g
+s~ class="sdfootnote"~~g
+s~ class="sdfootnotesym"~~g
+s~ class="sdfootnoteanc"~~g
+s~<font color="#[A-Fa-f0-9]*">~~g
+s~<span class="gl_dl">~~g
+s~ class='cs_glossaire'~~g
+s~ rel='external'~~g
+s~<span class='gl_mot'>~~g
+s~&#8217;~’~g
+s~&#8221;~”~g
+s~&#8212;~ – ~g
+s~—~ – ~g
+s~&nbsp;~ ~g
+s~”\.~.”~g
+s~”,~,”~g
+s~  ~ ~g
+s~ </p>~</p>~g
+s~<p> ~<p>~g
+s~<div>~~g
+s~</div>~~g
+s~</body>~~g
+s~</html>~~g
+s~<a href="#sdfootnote[0-9]*sym">[0-9]*</a>~[note][/note]~g
