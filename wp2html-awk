@@ -1,0 +1,43 @@
+BEGIN {
+	myprint1=1
+	myprint2=0
+}
+
+{if ( $1=="<head>" ) {
+		myprint1=0
+	}
+}
+
+{if ( $1=="</head>" ) {
+		myprint2=1
+	}
+}
+
+{if ( myprint1==1 || myprint2==1 ) {
+		{	gsub("<font size=\".*\" style=\".*\">","")
+		gsub("<a class=\".*\" name=\".*\" ","<a ")
+		gsub("</body>","")
+		gsub("</div>","")
+		gsub("<div id=\".*\"><p","<p")
+		gsub("</font>","")
+		gsub("<font color=\".*\">","")
+		gsub("<font face=\".*\">","")
+		gsub("<i>","<em>")
+		gsub("</i>","</em>")
+		gsub("<em> ","<em>")
+		gsub("</html>","")
+		gsub("<p><b>","<h3>")
+		gsub("</b></p>","</h3>")
+		gsub("<p lang=\".*\" style=\".*\">","<p>")
+		gsub("<p style=\".*\">","<p>")
+		gsub("</span>","")
+		gsub("<span lang=\".*\">","")
+		gsub("<sup>","")
+		gsub("</sup>","")
+		gsub("<a href=\"#sdfootnote[0-9]*sym\">[0-9]*</a>","[note][/note]")
+		gsub("<p class=\"sdfootnote\">","[note]")
+		}
+
+		{ print }
+	}
+}
